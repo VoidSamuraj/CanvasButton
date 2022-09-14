@@ -20,6 +20,9 @@ fun canvasButton(text:String="",width:Float,height:Float,onClick:()->Unit={}){
         )
         val canvas = android.graphics.Canvas(bitmap)
         val paint = android.graphics.Paint()
+        
+        //There you define how your button will looks like
+        
         paint.color= colorResource(id = R.color.menuFrontColor).hashCode()
         canvas.drawRect(
             0f,
@@ -30,6 +33,9 @@ fun canvasButton(text:String="",width:Float,height:Float,onClick:()->Unit={}){
         )
         paint.style = android.graphics.Paint.Style.FILL_AND_STROKE
 
+        // To make holes in canvas you need to specify BlendMode
+        // I tried XOR and CLEAR, in this example outcome be the same
+        // Blending mode is avalible from Q version so you should add alternative button look
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             paint.blendMode = BlendMode.XOR
 
